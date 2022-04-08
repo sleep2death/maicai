@@ -1,0 +1,12 @@
+@tailwind base;
+@tilwind components;
+@tailwind utilities;
+
+body {
+  font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑',
+    Arial, sans-serif;
+}
+
+.big-button {
+  @apply font-bold text-4xl px-2 py-5 w-full font-semibold;
+}

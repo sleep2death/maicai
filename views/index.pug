@@ -1,0 +1,44 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+    title 团坚强
+    link(href="/styles/style.css", rel="stylesheet")
+  body
+    div.h-screen.flex.flex-col
+      div.text-ldark.bg-llight.font-bold.text-2xl.p-2
+        div.select-none 团坚强
+      div.flex.flex-col
+        div#join.text-ldark.bg-lmed
+          button#search-btn.w-full.big-button 参加团购
+          div.w-full.h-16.my-8.content.hidden.flex
+            div.grow.ml-4
+              div.w-full
+                input.w-full.h-16.rounded-l-full.text-3xl.font-semibold.pl-4(type="text" placeholder='团购号码' pattern="[0-9]*")
+            div.mr-4
+              button.w-28.h-16.bg-ldirt.rounded-r-full.text-3xl.font-bold 确认
+        div#search.text-ldark.bg-lsand
+          button.w-full.big-button 查询团购
+        div#manage.text-ldark.bg-lora1
+          button#manage-btn.w-full.big-button 组织团购
+          div.w-full.h-16.my-8.content.flex(class=from==='manage'?'':'hidden')
+            div.grow.ml-4
+              div.w-full
+                input.w-full.h-16.rounded-l-full.text-3xl.font-semibold.pl-4(type="text" placeholder='手机号码' pattern="[0-9]*")
+            div.mr-4
+              button.w-28.h-16.bg-ldirt.rounded-r-full.text-3xl.font-bold 确认
+        div#readme.text-ldark.bg-lora2
+          button.w-full.big-button 使用说明
+
+  script.
+    document.getElementById('manage-btn').onclick = () => {
+        const content = document.querySelector('#manage .content')
+        content.classList.toggle('hidden')
+      }
+    document.querySelector('#manage .content button').onclick = () => {
+        const input = document.querySelector('#manage input')
+        location.href = (`/manage/${input.value}`)
+      }
+

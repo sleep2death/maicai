@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+    title 创建团购
+    link(href="/styles/style.css", rel="stylesheet")
+  body
+    div.h-screen.flex.flex-col
+      div.text-ldark.bg-llight.font-bold.text-xl.p-2
+        div.select-none 创建团购
+      div#phone.text-ldark.bg-lmed.p-2
+        div.text-2xl.pl-4.font-medium 手机号码
+        div.w-full.h-16.my-2.content
+          input.w-full.h-16.rounded-full.text-3xl.font-semibold.px-4(type="text" placeholder='手机号码' pattern="[0-9]*" value=phone)
+      div#content.h-full.bg-llight.overflow-y-auto
+      button#add.w-full.bg-lora1.h-24.text-2xl.font-semibold 添加商品
+
+  script.
+    document.getElementById('add').onclick = () => {
+      const node = document.createElement('div')
+      node.innerHTML = '<div class="bg-lsand2 h-16 border-b border-ldirt p-2">ITEM</div>'
+      const content = document.getElementById('content')
+      content.appendChild(node)
+    }

@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+    title #{title}
+    link(href="/styles/style.css", rel="stylesheet")
+  body
+    div.h-screen.w-screen.flex.flex-col
+      div.text-lblue.bg-lred.font-semibold.text-3xl.p-2.text-center.py-40.grow !{headMessage}
+      button#back.text-ldark.bg-llight.font-bold.text-4xl.h-24 返回
+  script.
+    document.getElementById('back').onclick = () => {
+      location.href = '!{redirect}'
+    }
