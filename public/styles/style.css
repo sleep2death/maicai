@@ -470,6 +470,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @tilwind components;
 
+.m-auto {
+  margin: auto;
+}
+
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -486,6 +490,22 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mr-4 {
   margin-right: 1rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
 }
 
 .flex {
@@ -508,8 +528,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 4rem;
 }
 
-.h-14 {
-  height: 3.5rem;
+.h-12 {
+  height: 3rem;
 }
 
 .h-full {
@@ -526,6 +546,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-28 {
   width: 7rem;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .grow {
@@ -547,10 +571,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   overflow-y: auto;
 }
 
-.scroll-auto {
-  scroll-behavior: auto;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
@@ -565,8 +585,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-bottom-right-radius: 9999px;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .border-b {
   border-bottom-width: 1px;
+}
+
+.border-ldark {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 18 25 / var(--tw-border-opacity));
 }
 
 .border-ldirt {
@@ -609,9 +638,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(187 62 3 / var(--tw-bg-opacity));
 }
 
-.bg-lsand2 {
+.bg-lgreen2 {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 232 214 / var(--tw-bg-opacity));
+  background-color: rgb(42 157 143 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -630,6 +659,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
+.pl-2 {
+  padding-left: 0.5rem;
 }
 
 .text-center {
@@ -656,21 +693,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.75rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .font-semibold {
   font-weight: 600;
 }
 
 .font-bold {
   font-weight: 700;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.text-lblue {
-  --tw-text-opacity: 1;
-  color: rgb(144 219 244 / var(--tw-text-opacity));
 }
 
 .text-ldark {
@@ -692,4 +725,24 @@ body {
   font-size: 2.25rem;
   line-height: 2.5rem;
   font-weight: 600;
+}
+
+.odd\:bg-lsand:nth-child(odd) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(233 216 166 / var(--tw-bg-opacity));
+}
+
+.even\:bg-lgreen:nth-child(even) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(216 226 220 / var(--tw-bg-opacity));
+}
+
+.invalid\:bg-lred2:invalid {
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 57 70 / var(--tw-bg-opacity));
+}
+
+.invalid\:bg-lred:invalid {
+  --tw-bg-opacity: 1;
+  background-color: rgb(174 32 18 / var(--tw-bg-opacity));
 }

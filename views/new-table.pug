@@ -11,16 +11,73 @@ html(lang="en")
       div.text-ldark.bg-llight.font-bold.text-xl.p-2
         div.select-none 创建团购
       div#phone.text-ldark.bg-lmed.p-2
-        div.text-2xl.pl-4.font-medium 手机号码
-        div.w-full.h-16.my-2.content
-          input.w-full.h-16.rounded-full.text-3xl.font-semibold.px-4(type="text" placeholder='手机号码' pattern="[0-9]*" value=phone)
-      div#content.h-full.bg-llight.overflow-y-auto
-      button#add.w-full.bg-lora1.h-24.text-2xl.font-semibold 添加商品
+        div.flex
+          div.text.font-semibold.w-24.m-auto 手机号码
+          div.w-full.h-12.my-2.grow
+            input.w-full.h-12.rounded-full.text-xl.font-semibold.px-4(type="text" placeholder='手机号码' pattern="[0-9]*" value=phone)
+      button#add.w-full.bg-lora1.h-16.text-xl.font-semibold 添加商品
+      ul#content.h-full.bg-llight.overflow-y-auto
+      button#confirm.w-full.bg-lgreen2.h-16.text-xl.font-semibold 保存
 
   script.
+    let even = true
     document.getElementById('add').onclick = () => {
-      const node = document.createElement('div')
-      node.innerHTML = '<div class="bg-lsand2 h-16 border-b border-ldirt p-2">ITEM</div>'
+      const node = document.createElement('li')
+      node.classList.add('odd:bg-lsand')
+      node.classList.add('even:bg-lgreen')
+
+      const name = '<div class="grow"><div class="border border-ldark"><input name="product-name" class="w-full h-full text-2xl p-2 invalid:bg-lred2" placeholder="商品名称"/></div></div>'
+
+      const price = '<div class="ml-2"><div class="w-28 border border-ldark"><input name="product-price" class="w-full h-full text-2xl p-2 invalid:bg-lred2" placeholder="单价(元)" pattern="[0-9]+(\.[0-9][0-9]?)?"/></div></div>'
+      const comment = '<div class="grow"><div class="border border-ldark mt-2"><input name="product-comment" class="w-full h-full text-lg p-2" placeholder="备注"/></div></div><div class="bg-ora2 w-24 pt-2 pl-2"><Button class="w-full h-full bg-lora2 text-lg delete-btn" onclick="deleteThis(this)">删除</Button></div>'
+      node.innerHTML = `<div class="item border-b border-ldirt p-2"><div class="flex">${name}${price}</div><div class="flex">${comment}</div></div>`
+
       const content = document.getElementById('content')
       content.appendChild(node)
+      content.scrollTop = content.scrollHeight
+    }
+
+    document.getElementById('confirm').onclick= () => {
+      // const nodes = document.querySelectorAll('.item')
+      const names = document.getElementsByName('product-name')
+      const prices = document.getElementsByName('product-price')
+      const comments = document.getElementsByName('product-comment')
+
+      let data = []
+      for(let i = 0; i < names.length; i++) {
+        const name = names[i].value.trim()
+        const price = prices[i].value.trim()
+        const comment = comments[i].value.trim()
+
+        if (!name || name === '') {
+          // console.log('emtpy')
+          names[i].setCustomValidity('商品名称不能为空')
+          names[i].placeholder = '需要商品名称'
+          names[i].onfocus = (e) => {
+            e.target.setCustomValidity('')
+            names[i].placeholder = '商品名称'
+          }
+
+          names[i].scrollIntoView(true, {behavior: 'smooth'})
+          return
+        }
+
+        if (!price || price === '') {
+          prices[i].setCustomValidity('价格不能为空')
+          prices[i].placeholder = '需要单价'
+          prices[i].onfocus = (e) => {
+            e.target.setCustomValidity('')
+            prices[i].placeholder = '单价(元)'
+          }
+          prices[i].parentNode.parentNode.parentNode.scrollIntoView(true, {behavior: 'smooth'})
+          return
+        }
+
+        data.push({ name, price, comment })
+      }
+    }
+
+    function deleteThis(e) {
+      const content = document.getElementById('content')
+      content.removeChild(e.parentNode.parentNode.parentNode.parentNode)
     }
