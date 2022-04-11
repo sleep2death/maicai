@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+    title 修改团购
+    link(href="/styles/style.css", rel="stylesheet")
+  body
+    div.h-screen.flex.flex-col
+      div.text-ldark.bg-llight.font-bold.text-xl.p-2
+        div.select-none 编辑团购
+      div#phone.text-ldark.bg-lmed.p-2
+        div.flex
+          div.text.font-semibold.w-24.m-auto 手机号码
+          div.w-full.h-12.my-2.grow
+            input.w-full.h-12.rounded-full.text-xl.font-semibold.px-4(type="text" placeholder='手机号码' pattern="[0-9]*" value=phone)

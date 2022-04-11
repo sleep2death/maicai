@@ -15,6 +15,15 @@ html(lang="en")
           div.text.font-semibold.w-24.m-auto 手机号码
           div.w-full.h-12.my-2.grow
             input.w-full.h-12.rounded-full.text-xl.font-semibold.px-4(class="disabled:bg-llight" type="text" placeholder='手机号码' pattern="[0-9]*" disabled value=phone)
+      div.text-ldark.bg-lmed.p-2
+        div.flex.w-full
+          div.font-semibold.w-20.my-auto 查询密码
+          div.h-12.my-2.w-28.text-center
+            input#password.w-full.h-12.rounded-full.text-xl.font-semibold.px-4(class="disabled:bg-llight" type="text" pattern="[0-9]*" readonly='readonly' value=pwd)
+          button#clip.grow.ml-2.rounded-full.my-auto.h-12.text-xl.font-semibold.bg-llight.text-center 点击复制
+      div.w-full.bg-lora2.text-lwhite
+        div.text-center.w-full.text-lg 请务必记好"查询密码"
+
       ul#content.h-full.bg-llight.overflow-y-auto
         each item in data
           li.item.border-b.border-ldirt.p-2.w-full(class="odd:bg-lsand even:bg-lgreen")
@@ -24,3 +33,21 @@ html(lang="en")
             if item.comment && item.comment !== ''
               div.text-xl.w-full
                 div.pt-2= item.comment
+
+      div#confirm.w-full.bg-lgreen2.h-24.text-xl.font-semibold.flex
+        button#back.grow.bg-lsand.font-semibold 返回首页
+        button#edit.grow.bg-lsand2.font-semibold 修改清单
+
+    script.
+      document.getElementById('clip').onclick = () => {
+        document.getElementById('password').select()
+        navigator.clipboard.writeText('!{pwd}')
+      }
+
+      document.getElementById('back').onclick = () => {
+        location.hfref = '/'
+      }
+
+      document.getElementById('back').onclick = () => {
+        location.hfref = '/edit-table'
+      }

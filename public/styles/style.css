@@ -533,14 +533,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }
 
-.h-32 {
-  height: 8rem;
-}
-
-.h-20 {
-  height: 5rem;
-}
-
 .w-screen {
   width: 100vw;
 }
@@ -555,6 +547,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-24 {
   width: 6rem;
+}
+
+.w-32 {
+  width: 8rem;
 }
 
 .w-20 {
@@ -652,9 +648,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(42 157 143 / var(--tw-bg-opacity));
 }
 
-.bg-lwhite {
+.bg-lsand2 {
   --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  background-color: rgb(255 232 214 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -683,12 +679,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 0.5rem;
 }
 
-.pt-3 {
-  padding-top: 0.75rem;
+.pt-4 {
+  padding-top: 1rem;
 }
 
-.text-left {
-  text-align: left;
+.pt-3 {
+  padding-top: 0.75rem;
 }
 
 .text-center {
@@ -697,6 +693,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-right {
   text-align: right;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .text-3xl {
@@ -735,6 +735,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-ldark {
   --tw-text-opacity: 1;
   color: rgb(0 18 25 / var(--tw-text-opacity));
+}
+
+.text-lwhite {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 body {

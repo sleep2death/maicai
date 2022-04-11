@@ -20,7 +20,8 @@ html(lang="en")
       button#confirm.w-full.bg-lgreen2.h-16.text-xl.font-semibold 保存
 
   script.
-    let even = true
+    const session = '!{session}'
+
     document.getElementById('add').onclick = () => {
       const node = document.createElement('li')
       node.classList.add('odd:bg-lsand')
@@ -81,13 +82,18 @@ html(lang="en")
       form.method = 'POST'
       form.action = '/save-table/#{phone}'
 
-      const input = document.createElement('input')
-      input.name = 'data'
-      input.value = JSON.stringify(data)
-      form.appendChild(input)
+      const d = document.createElement('input')
+      d.name = 'data'
+      d.value = JSON.stringify(data)
+
+      const sess = document.createElement('input')
+      sess.name = 'session'
+      sess.value = session
+
+      form.appendChild(d)
+      form.appendChild(sess)
 
       document.body.appendChild(form)
-      // console.log(input.value)
       form.submit()
     }
 

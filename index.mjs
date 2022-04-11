@@ -31,6 +31,7 @@ import moment from 'moment'
 
   app.get('/new-table/:number', newTable(client))
   app.post('/save-table/:number', saveTable(client))
+  app.get('/edit/:number', editTable(client))
 
   const server = app.listen(3000, () => {
     console.log(`The application started on port ${server.address().port}`)
@@ -43,6 +44,12 @@ function newTable(client) {
   return async (req, res) => {
     const n = req.params.number
     const r = n.match(phoneReg)
+
+    // create session
+    const uuid = uuidv4()
+    const session = `sess:${n}:${uuid}`
+    await client.SET(`sess:${n}:${uuid}`, 'true')
+
     if (!r) {
       res.render('error', {
         title: '无效号码',
@@ -53,7 +60,7 @@ function newTable(client) {
 
     const exists = await client.EXISTS(`phone:${n}`)
     if (!exists) {
-      res.render('new-table', { phone: n })
+      res.render('new-table', { phone: n, session })
     }
     // res.send(req.params.number + ' exists: ' + exists)
   }
@@ -63,6 +70,19 @@ function saveTable(client) {
   return async (req, res) => {
     const n = req.params.number
     try {
+      const session = req.body.session
+      if (session && session !== '') {
+        const exists = await client.EXISTS(session)
+        console.log(session, exists)
+        if (exists) {
+          await client.DEL(session)
+        } else {
+          throw new Error('表单不存在')
+        }
+      } else {
+        throw new Error('表单不存在')
+      }
+
       const data = JSON.parse(req.body.data)
       const uuid = uuidv4()
       const randPin = getRandomPin('0123456789', 4)
@@ -92,6 +112,7 @@ function saveTable(client) {
         title: '团购已保存!',
         phone: n,
         data: data,
+        pwd,
       })
     } catch (e) {
       console.error(e)
@@ -103,6 +124,17 @@ function saveTable(client) {
         )}`,
       })
     }
+  }
+}
+
+function editTable() {
+  return async (req, res) => {
+    const n = req.params.number
+    res.render('edit-table', {
+      title: '编辑团购',
+      phone: n,
+      pwd,
+    })
   }
 }
 
