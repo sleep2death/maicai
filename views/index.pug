@@ -21,9 +21,9 @@ html(lang="en")
               button.w-28.h-16.bg-ldirt.rounded-r-full.text-3xl.font-bold 确认
         div#search.text-ldark.bg-lsand
           button.w-full.big-button 查询团购
-        div#manage.text-ldark.bg-lora1
-          button#manage-btn.w-full.big-button 组织团购
-          div.w-full.h-16.my-8.content.flex(class=from==='manage'?'':'hidden')
+        div#new-table.text-ldark.bg-lora1
+          button#new-table-btn.w-full.big-button 组织团购
+          div.w-full.h-16.my-8.content.flex(class=from==='new-table'?'':'hidden')
             div.grow.ml-4
               div.w-full
                 input.w-full.h-16.rounded-l-full.text-3xl.font-semibold.pl-4(type="text" placeholder='手机号码' pattern="[0-9]*")
@@ -33,12 +33,12 @@ html(lang="en")
           button.w-full.big-button 使用说明
 
   script.
-    document.getElementById('manage-btn').onclick = () => {
-        const content = document.querySelector('#manage .content')
+    document.getElementById('new-table-btn').onclick = () => {
+        const content = document.querySelector('#new-table .content')
         content.classList.toggle('hidden')
       }
-    document.querySelector('#manage .content button').onclick = () => {
-        const input = document.querySelector('#manage input')
-        location.href = (`/manage/${input.value}`)
+    document.querySelector('#new-table .content button').onclick = () => {
+        const input = document.querySelector('#new-table input')
+        location.href = (`/new-table/${input.value}`)
       }
 

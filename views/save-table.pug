@@ -1,0 +1,26 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
+    title #{title}
+    link(href="/styles/style.css", rel="stylesheet")
+  body
+    div.h-screen.flex.flex-col
+      div.text-ldark.bg-llight.font-bold.text-2xl.p-2
+        div.select-none #{title}
+      div#phone.text-ldark.bg-lmed.p-2
+        div.flex
+          div.text.font-semibold.w-24.m-auto 手机号码
+          div.w-full.h-12.my-2.grow
+            input.w-full.h-12.rounded-full.text-xl.font-semibold.px-4(class="disabled:bg-llight" type="text" placeholder='手机号码' pattern="[0-9]*" disabled value=phone)
+      ul#content.h-full.bg-llight.overflow-y-auto
+        each item in data
+          li.item.border-b.border-ldirt.p-2.w-full(class="odd:bg-lsand even:bg-lgreen")
+            div.flex.w-full.text-3xl
+              div.grow.my-auto= item.name
+              div.my-auto.ml-2.w-28.text-right= item.price + '元'
+            if item.comment && item.comment !== ''
+              div.text-xl.w-full
+                div.pt-2= item.comment

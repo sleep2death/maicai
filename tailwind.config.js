@@ -15,6 +15,7 @@ module.exports = {
       lora1: '#ee9b00',
       lora2: '#bb3e03',
       lgreen2: '#2a9d8f',
+      lwhite: '#FFFFFF',
     },
   },
   plugins: [],

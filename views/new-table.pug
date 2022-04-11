@@ -75,6 +75,20 @@ html(lang="en")
 
         data.push({ name, price, comment })
       }
+
+      const form = document.createElement('form')
+      form.style.visibility = 'hidden'
+      form.method = 'POST'
+      form.action = '/save-table/#{phone}'
+
+      const input = document.createElement('input')
+      input.name = 'data'
+      input.value = JSON.stringify(data)
+      form.appendChild(input)
+
+      document.body.appendChild(form)
+      // console.log(input.value)
+      form.submit()
     }
 
     function deleteThis(e) {

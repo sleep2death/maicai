@@ -484,6 +484,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0.5rem;
 }
 
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -498,14 +503,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mt-2 {
   margin-top: 0.5rem;
-}
-
-.block {
-  display: block;
-}
-
-.inline {
-  display: inline;
 }
 
 .flex {
@@ -536,6 +533,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 100%;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
 .w-screen {
   width: 100vw;
 }
@@ -550,6 +555,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-24 {
   width: 6rem;
+}
+
+.w-20 {
+  width: 5rem;
 }
 
 .grow {
@@ -643,6 +652,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(42 157 143 / var(--tw-bg-opacity));
 }
 
+.bg-lwhite {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -669,8 +683,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 0.5rem;
 }
 
+.pt-3 {
+  padding-top: 0.75rem;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .text-3xl {
@@ -742,7 +768,7 @@ body {
   background-color: rgb(230 57 70 / var(--tw-bg-opacity));
 }
 
-.invalid\:bg-lred:invalid {
+.disabled\:bg-llight:disabled {
   --tw-bg-opacity: 1;
-  background-color: rgb(174 32 18 / var(--tw-bg-opacity));
+  background-color: rgb(148 210 189 / var(--tw-bg-opacity));
 }
